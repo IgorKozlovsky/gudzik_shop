@@ -1,0 +1,258 @@
+@media screen and (max-width: 1450px) {
+  /* стили для больших планшетов и ноутов - начало */
+  header {
+    .nav {
+      padding: 0 120px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  /* стили для больших планшетов и ноутов - начало */
+  .aside-humburger-list {
+    display: flex;
+    visibility: visible;
+  }
+  header {
+    .row {
+      height: 15px;
+      width: 100%;
+      background-color: $m;
+    }
+    .nav-wrapper {
+      //   display: none;
+    }
+    .nav {
+      padding: 0 0;
+    }
+  }
+  .cart {
+    &-items__item {
+      grid-template-areas:
+        "image title title title"
+        "something something something something";
+      img {
+        width: 150px;
+      }
+    }
+  }
+  .main {
+    grid-template-areas:
+      "header header header"
+      "main main main"
+      "pagination pagination pagination";
+    grid-template-columns: 0.1fr 1fr 1fr;
+
+    header {
+      position: relative;
+      .button {
+        display: block;
+      }
+    }
+    .aside {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* стили для средних планшетов - начало */
+  header {
+    .row {
+      height: 10px;
+    }
+    .nav-wrapper {
+      display: none;
+      gap: 0px;
+    }
+  }
+  .humburger {
+    &-btn {
+      display: block;
+    }
+    &-list {
+      display: block;
+    }
+  }
+  .auth {
+    &-wrapper {
+      width: 100%;
+    }
+  }
+  .cart {
+    &-items__item {
+      grid-template-areas:
+        "image image image image"
+        "title title title title"
+        "something something something something";
+      padding: 5px 0px;
+      img {
+        justify-self: center;
+        width: 140px;
+      }
+    }
+  }
+  .main {
+    &-items {
+      &__item {
+        width: 50% !important;
+      }
+    }
+  }
+}
+@media screen and (max-width: 650px) {
+  .main {
+    header {
+      label {
+        display: none;
+      }
+    }
+  }
+  .cart {
+    &-form {
+      border-bottom: 3px solid $m;
+      padding-bottom: 20px;
+    }
+    &-wrapper {
+      max-height: fit-content;
+    }
+    &-items__item {
+      grid-template-areas:
+        "image title title title"
+        "something something something something";
+      padding: 5px 0px;
+      img {
+        justify-self: center;
+        width: 140px;
+      }
+    }
+    &-items {
+      height: 400px;
+      border-left: none;
+    }
+    &-items__item:first-child {
+    }
+    &-items__item:last-child {
+      border-bottom: 3px solid $m;
+    }
+    &-wrapper {
+      flex-direction: column;
+    }
+  }
+}
+@media screen and (max-width: 479px) {
+  /* стили для телефонов - начало */
+  .main {
+    header {
+      padding: 0;
+      margin-bottom: 15px;
+      gap: 10px;
+      flex-direction: column;
+    }
+    &-items {
+      border-left: none !important;
+      border-top: none !important;
+      justify-content: center;
+      &__item {
+        width: 80% !important;
+        padding: 4px !important ;
+        border-left: 1px solid $sl;
+        &:first-child {
+          border-top: 1px solid $sl;
+        }
+        // &-properties {
+        //   div {
+        //     flex-direction: column;
+        //     gap: 5px;
+        //   }
+        // }
+        // &-desc {
+        //   gap: 10px;
+        //   flex-direction: column;
+        // }
+      }
+    }
+  }
+  header {
+    .row {
+      height: 0px;
+    }
+    .nav-wrapper-logo {
+    }
+  }
+  .humburger {
+    &-list {
+      width: 230px;
+    }
+  }
+  .auth {
+    &-wrapper {
+      grid-template-areas:
+        "title title"
+        "input input"
+        "link link"
+        "button button";
+
+      padding: 40px 20px;
+    }
+  }
+  .modal {
+    .dropdown {
+      text-align: center;
+    }
+    &-content {
+      padding: 25px 0px;
+    }
+    &-title {
+      text-align: center;
+    }
+    &-controls {
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      .button:first-child {
+        margin-right: 0px;
+      }
+    }
+    &-items {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .cart {
+    &-items__item {
+      grid-template-areas:
+        "image image image image"
+        "title title title title"
+        "something something something something";
+      padding: 5px 0px;
+      img {
+        justify-self: center;
+        width: 140px;
+      }
+    }
+    &-items {
+      height: 400px;
+      border-left: none;
+    }
+  }
+  .main {
+    header {
+      select {
+        padding: 5px 0px;
+      }
+    }
+  }
+}
+
+$maxWidth: 1920;
+@mixin adptive-font($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+  @media (max-width: 768px) {
+    font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidth}));
+  }
+  @media (min-width: 768px) {
+    font-size: calc(#{$mobSize + px} + #{$addMobSize} * (100vw / #{$maxWidth}));
+  }
+}

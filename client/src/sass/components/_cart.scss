@@ -1,0 +1,214 @@
+.cart-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    text-align: center;
+    align-items: center;
+    gap: 35px;
+    border: $border;
+    color: $d;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+}
+
+.cart {
+  width: 100%;
+  max-width: 1327px;
+  margin: 0 auto;
+  padding: 20px 10px 0px 10px;
+  &-wrapper {
+    max-height: 750px;
+    height: 100%;
+    border: $border;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  &-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .form {
+    &-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      border-bottom: 1px $sl solid;
+      padding-bottom: 25px;
+    }
+    &-items {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+      &__inp {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        label {
+          color: $sl;
+          font-size: 15px;
+          width: 100%;
+          height: 36px;
+        }
+        input {
+          width: 100%;
+          border: 1px $sd solid;
+          border-radius: 10px;
+          padding: 5px 10px;
+          font-size: 20px;
+        }
+        textarea {
+          width: 100%;
+          max-height: 300px;
+          height: 4em;
+          border: 1px $sd solid;
+          border-radius: 10px;
+          padding: 5px 10px;
+          font-size: 20px;
+        }
+        select {
+          cursor: pointer;
+          color: $d;
+          width: 100%;
+          border: 1px $sd solid;
+          border-radius: 10px;
+          padding: 5px 10px;
+          font-size: 20px;
+        }
+      }
+    }
+    &-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 30px;
+      &-sum {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        text-align: center;
+        margin-bottom: 15px;
+        padding: 10px 0;
+        border-top: 1px $sl solid;
+        border-bottom: 1px $sl solid;
+        border-radius: 10px;
+      }
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+  &-items {
+    max-width: 600px;
+    width: 100%;
+    overflow: auto;
+    border-left: 3px $m solid;
+    border-radius: 2px;
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.539);
+      border-radius: 10px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: $m;
+      border-radius: 10px;
+    }
+    &-text {
+      font-size: 25px;
+      text-align: center;
+      padding: 3px 0px;
+    }
+
+    &-count {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      padding: 0px 6px;
+      font-size: 25px;
+      input {
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        border: 1px rgba(0, 0, 0, 0.166) solid;
+        text-align: center;
+        max-width: 60px;
+        width: 100%;
+        border-radius: 10px;
+        padding: 3px 0px;
+        transition: 0.1s;
+        &:focus {
+          border: 1px rgba(0, 0, 0, 0.347) solid;
+        }
+      }
+    }
+
+    &-title {
+      text-align: center;
+      grid-area: title;
+      border-bottom: 1px $sd solid;
+      padding-bottom: 10px;
+    }
+    &-articul {
+      margin-bottom: 5px;
+      font-weight: normal !important;
+    }
+    &-variant {
+      font-weight: normal !important;
+    }
+    &-content {
+      max-width: 120px;
+      width: 100%;
+    }
+    &__item {
+      display: grid;
+      grid-template-areas:
+        "image title title title"
+        "image something something something";
+      justify-content: space-around;
+      align-items: center;
+      padding: 15px 0px;
+      border-bottom: 3px $m solid;
+      position: relative;
+      &:last-child {
+        border-bottom: none;
+      }
+      img {
+        width: 200px;
+        height: auto;
+        border-radius: 10px;
+        grid-area: image;
+      }
+      label {
+        color: $sd;
+      }
+    }
+  }
+  .button {
+    color: $m;
+    border-color: $m;
+    margin-right: 0 !important;
+  }
+}

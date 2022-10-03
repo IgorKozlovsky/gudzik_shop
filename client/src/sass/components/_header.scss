@@ -1,0 +1,202 @@
+@import "./media";
+.app-header {
+  position: fixed;
+  z-index: 1;
+}
+#menu__toggle {
+  opacity: 0;
+  &:checked ~ .humburger-list {
+    visibility: visible;
+    left: 0;
+    span {
+      transform: rotate(45deg);
+    }
+    span::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+    span::before {
+      top: 0;
+      transform: rotate(0);
+    }
+  }
+  &:checked ~ .humburger-btn span {
+    transform: rotate(45deg);
+    &::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+    &::before {
+      top: 0;
+      transform: rotate(0);
+    }
+  }
+}
+
+// #menu__toggle:checked ~ .humburger__btn
+.humburger {
+  &-btn {
+    display: none;
+    align-items: center;
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    bottom: 0;
+    width: 35px;
+    height: 45px;
+    cursor: pointer;
+    span {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: $l;
+      transition-duration: 0.25s;
+    }
+    span::before {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: $l;
+      transition-duration: 0.25s;
+      content: "";
+      top: -8px;
+    }
+    span::after {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: $l;
+      transition-duration: 0.25s;
+      content: "";
+      top: 8px;
+    }
+  }
+  &-list {
+    display: none;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    background-color: $d;
+    box-shadow: 1px 0px 6px rgb(0 0 0 / 20%);
+    transition: all 0.5s ease;
+    overflow-x: scroll;
+    color: $l;
+    &__item {
+      margin-top: 20px;
+      margin-left: 20px;
+      font-size: 30px;
+    }
+  }
+}
+header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .row {
+    height: 25px;
+    width: 100%;
+    background-color: $m;
+  }
+  .nav {
+    height: 105px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 220px;
+    background-color: $d;
+    &-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 0.2fr;
+      gap: 0 40px;
+      align-items: center;
+      height: 80%;
+      width: 100%;
+      color: $l;
+      font-weight: bold;
+      &-logo {
+        cursor: pointer;
+      }
+      &-items {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: auto;
+        &__item {
+          position: relative;
+          cursor: pointer;
+          width: max-content;
+          max-height: 66px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 10px;
+          @include adptive-font(32, 26);
+          padding: 10px 15px;
+          transition: 0.3s;
+          img {
+            margin-right: 10px;
+            width: 4vw;
+            height: auto;
+          }
+          &:hover {
+            background-color: $sl;
+          }
+          &--active {
+            cursor: default;
+            background-color: $sd;
+            &:hover {
+              background-color: $sd;
+            }
+          }
+        }
+      }
+      &-cart {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        img {
+          width: 60px;
+          margin-right: 10px;
+          height: auto;
+        }
+      }
+    }
+  }
+  .button--error {
+    margin-left: 5px;
+  }
+}
+.dropdown-confirm {
+  font-size: 25px;
+  background-color: white;
+  border: 1px $sl solid;
+  border-radius: 10px;
+  padding: 10px 0px;
+  color: $d;
+  gap: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 93px;
+  left: 0px;
+  z-index: 1;
+  .button {
+    font-size: 25px !important;
+  }
+}
+.button-exit {
+  width: 180px !important;
+}
